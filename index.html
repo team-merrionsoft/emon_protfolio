@@ -1,0 +1,1609 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arian Ahmed Emon | Programmer | Entrepreneur</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+        
+        :root {
+            --primary: #6366f1;
+            --secondary: #8b5cf6;
+            --accent: #ec4899;
+            --dark: #0f172a;
+            --light: #f8fafc;
+        }
+        
+        body {
+            margin: 0;
+            overflow-x: hidden;
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--dark);
+            color: var(--light);
+            min-height: 100vh;
+            transition: all 0.3s ease;
+        }
+        
+        body.light {
+            background-color: #f1f5f9;
+            color: #0f172a;
+        }
+        
+        .glass-card {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px rgba(2, 6, 23, 0.5);
+            transition: all 0.3s ease;
+        }
+        
+        .light .glass-card {
+            background: rgba(255, 255, 255, 0.6);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 32px rgba(2, 6, 23, 0.1);
+        }
+        
+        .neumorphic {
+            border-radius: 16px;
+            background: linear-gradient(145deg, #0d1524, #0f172a);
+            box-shadow:  10px 10px 20px #0a101c, 
+                        -10px -10px 20px #141e38;
+            transition: all 0.3s ease;
+        }
+        
+        .light .neumorphic {
+            background: linear-gradient(145deg, #e6e9ee, #ffffff);
+            box-shadow:  10px 10px 20px #d9dce1, 
+                        -10px -10px 20px #ffffff;
+        }
+        
+        .holographic-text {
+            background: linear-gradient(90deg, #6366f1, #8b5cf6, #ec4899);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+            animation: holographic-shimmer 8s infinite alternate;
+        }
+        
+        @keyframes holographic-shimmer {
+            0% {
+                background-position: 0% 50%;
+            }
+            100% {
+                background-position: 100% 50%;
+            }
+        }
+        
+        .btn-holographic {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(90deg, #6366f1, #8b5cf6, #ec4899);
+            background-size: 200% 100%;
+            transition: all 0.5s ease;
+            box-shadow: 0 5px 15px rgba(99, 102, 241, 0.4);
+        }
+        
+        .btn-holographic:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.6);
+            background-position: 100% 50%;
+        }
+        
+        .skill-card {
+            transition: all 0.3s ease;
+            transform-style: preserve-3d;
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
+        }
+        
+        .project-card {
+            transition: all 0.3s ease;
+            transform-style: preserve-3d;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 25px rgba(0, 0, 0, 0.3);
+        }
+        
+        .testimonial-card {
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background: linear-gradient(90deg, #6366f1, #8b5cf6, #ec4899);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .active-nav::after {
+            width: 100%;
+        }
+        
+        .floating {
+            animation: floating 6s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+        
+        .gradient-border {
+            position: relative;
+            border-radius: 16px;
+        }
+        
+        .gradient-border::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            border-radius: 18px;
+            background: linear-gradient(45deg, #6366f1, #8b5cf6, #ec4899);
+            z-index: -1;
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+        
+        .gradient-border:hover::before {
+            opacity: 1;
+            top: -4px;
+            left: -4px;
+            right: -4px;
+            bottom: -4px;
+        }
+        
+        .toggle-checkbox:checked {
+            right: 0;
+            border-color: #6366f1;
+        }
+        
+        .toggle-checkbox:checked + .toggle-label {
+            background: linear-gradient(90deg, #6366f1, #8b5cf6);
+        }
+        
+        .section-title {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 60%;
+            height: 4px;
+            bottom: -8px;
+            left: 20%;
+            background: linear-gradient(90deg, #6366f1, #8b5cf6);
+            border-radius: 2px;
+        }
+        
+        .progress-bar {
+            position: relative;
+            overflow: hidden;
+            border-radius: 9999px;
+        }
+        
+        .progress-bar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            background: linear-gradient(90deg, #6366f1, #8b5cf6);
+            border-radius: 9999px;
+            animation: progress-animation 1.5s ease-out forwards;
+        }
+        
+        @keyframes progress-animation {
+            from {
+                width: 0;
+            }
+        }
+        
+        .contact-input {
+            transition: all 0.3s ease;
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        
+        .light .contact-input {
+            background: rgba(255, 255, 255, 0.6);
+        }
+        
+        .contact-input:focus {
+            border-color: #6366f1;
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.3);
+        }
+        
+        .social-icon {
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            transform: translateY(-5px) scale(1.1);
+        }
+        
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 0 15px currentColor;
+            animation: float 20s infinite ease-in-out;
+            will-change: transform;
+            mix-blend-mode: screen;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg) scale(0.8);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-1000px) rotate(720deg) scale(1.2);
+                opacity: 0;
+            }
+        }
+        
+        .cosmic-ray {
+            position: absolute;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent);
+            transform-origin: left center;
+            animation: ray-sweep 25s infinite linear;
+            z-index: -1;
+            filter: blur(1px);
+        }
+        
+        @keyframes ray-sweep {
+            0% {
+                transform: rotate(0deg) scaleX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.8;
+            }
+            90% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: rotate(360deg) scaleX(1);
+                opacity: 0;
+            }
+        }
+        
+        .hero-pattern {
+            background-image: 
+                radial-gradient(circle at 25% 25%, rgba(99, 102, 241, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+            background-size: 50% 50%;
+            animation: pattern-move 60s infinite linear;
+        }
+        
+        @keyframes pattern-move {
+            0% {
+                background-position: 0% 0%, 100% 100%;
+            }
+            100% {
+                background-position: 100% 100%, 0% 0%;
+            }
+        }
+        
+        .scroll-down {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 50px;
+            border: 2px solid #6366f1;
+            border-radius: 15px;
+            cursor: pointer;
+        }
+        
+        .scroll-down::before {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            width: 6px;
+            height: 6px;
+            margin-left: -3px;
+            background-color: #6366f1;
+            border-radius: 50%;
+            animation: scroll-down 1.5s infinite;
+        }
+        
+        @keyframes scroll-down {
+            0% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+        }
+        
+        .grid-pattern {
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: grid-move 120s infinite linear;
+        }
+        
+        @keyframes grid-move {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: 1000px 1000px;
+            }
+        }
+        
+        .floating-icon {
+            position: absolute;
+            font-size: 24px;
+            color: rgba(255, 255, 255, 0.7);
+            animation: icon-float 25s infinite linear;
+            z-index: -1;
+            text-shadow: 0 0 10px currentColor;
+        }
+        
+        @keyframes icon-float {
+            0% {
+                transform: translateY(0) rotate(0deg) scale(1);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.6;
+            }
+            90% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(-1000px) rotate(360deg) scale(1.5);
+                opacity: 0;
+            }
+        }
+        
+        .section {
+            scroll-margin-top: 100px;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .glass-card {
+                backdrop-filter: blur(8px);
+                -webkit-backdrop-filter: blur(8px);
+            }
+            
+            .hero-content {
+                padding-top: 100px;
+            }
+            
+            .nav-menu {
+                backdrop-filter: blur(16px);
+                -webkit-backdrop-filter: blur(16px);
+                background: rgba(15, 23, 42, 0.9);
+            }
+            
+            .light .nav-menu {
+                background: rgba(255, 255, 255, 0.9);
+            }
+        }
+        .typing-wrapper {
+            display: inline-block;
+            position: relative;
+            height: 1.2em;
+            vertical-align: middle;
+        }
+        .typing-cursor {
+            display: inline-block;
+            width: 3px;
+            height: 1em;
+            background-color: #3b82f6;
+            animation: blink 1s infinite;
+            vertical-align: middle;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        .typing-word {
+            position: absolute;
+            left: 0;
+            top: 0;
+            white-space: nowrap;
+            border-right: 3px solid #3b82f6;
+            overflow: hidden;
+            width: 0;
+            transition: width 0.5s ease, opacity 0.3s ease;
+        }
+        .typing-word.active {
+            width: 100%;
+            border-right: 3px solid transparent;
+        }
+        .typing-word.inactive {
+            opacity: 0;
+        }
+        @keyframes circuit-pulse {
+            0% { stroke-dashoffset: 100; opacity: 0.3; }
+            50% { opacity: 1; }
+            100% { stroke-dashoffset: 0; opacity: 0.3; }
+        }
+        
+        @keyframes quantum-float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            25% { transform: translateY(-5px) rotate(2deg); }
+            50% { transform: translateY(0) rotate(0deg); }
+            75% { transform: translateY(5px) rotate(-2deg); }
+        }
+        
+        @keyframes particle-spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        @keyframes glitch {
+            0% { text-shadow: 2px 0 #4fd1c5, -2px 0 #f687b3; }
+            20% { text-shadow: 2px 0 #4fd1c5, -2px 0 #f687b3; }
+            21% { text-shadow: -3px 0 #4fd1c5, 3px 0 #f687b3; }
+            40% { text-shadow: -3px 0 #4fd1c5, 3px 0 #f687b3; }
+            41% { text-shadow: 0 -2px #4fd1c5, 0 2px #f687b3; }
+            60% { text-shadow: 0 -2px #4fd1c5, 0 2px #f687b3; }
+            61% { text-shadow: 0 0 #4fd1c5, 0 0 #f687b3; }
+            100% { text-shadow: 0 0 #4fd1c5, 0 0 #f687b3; }
+        }
+        
+        @keyframes particle-move {
+            0% { transform: translate(0, 0); opacity: 0; }
+            20% { opacity: 1; }
+            100% { transform: translate(var(--tx), var(--ty)); opacity: 0; }
+        }
+        
+        @keyframes hexagon-rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.7; }
+            50% { transform: scale(1.05); opacity: 1; }
+            100% { transform: scale(1); opacity: 0.7; }
+        }
+        
+        .circuit-path {
+            stroke-dasharray: 100;
+            stroke-dashoffset: 100;
+            animation: circuit-pulse 6s linear infinite;
+        }
+        
+        .quantum-logo {
+            animation: quantum-float 8s ease-in-out infinite;
+        }
+        
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            animation: particle-move 4s linear infinite;
+            animation-delay: var(--delay);
+        }
+        
+        .glitch-text {
+            animation: glitch 8s linear infinite;
+        }
+        
+        .tech-gradient {
+            background: linear-gradient(135deg, #4fd1c5 0%, #4299e1 50%, #9f7aea 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .holographic-effect {
+            background: linear-gradient(45deg, 
+                rgba(79, 209, 197, 0.8) 0%, 
+                rgba(66, 153, 225, 0.8) 33%, 
+                rgba(159, 122, 234, 0.8) 66%, 
+                rgba(236, 72, 153, 0.8) 100%);
+            background-size: 300% 300%;
+            animation: gradient-shift 12s ease infinite;
+        }
+        
+        @keyframes gradient-shift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .header-container {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .header-container.scrolled {
+            background: rgba(15, 23, 42, 0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hexagon {
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+        
+        .inner-hexagon {
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            animation: hexagon-rotate 12s linear infinite reverse;
+        }
+        
+        .hexagon-particle {
+            position: absolute;
+            border-radius: 50%;
+            animation: particle-spin 8s linear infinite;
+        }
+    </style>
+</head>
+<body class="dark transition-colors duration-300">
+    <!-- Background elements -->
+    <div class="fixed inset-0 -z-10 hero-pattern"></div>
+    <div class="fixed inset-0 -z-20 grid-pattern"></div>
+    <div id="particles" class="fixed inset-0 -z-10 overflow-hidden"></div>
+    <div id="cosmic-rays" class="fixed inset-0 -z-10 overflow-hidden"></div>
+    <div id="floating-icons" class="fixed inset-0 -z-10 overflow-hidden"></div>
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-opacity-80 bg-dark shadow-sm">
+        <div class="container mx-auto px-6 py-4">
+                    <div class="max-w-7xl mx-auto flex items-center justify-between">
+                    <!-- Quantum Tech Logo -->
+                    <div class="flex items-center space-x-3">
+                        <!-- New Hexagon Tech Logo -->
+                        <div class="quantum-logo relative h-14 w-14">
+                            <div class="hexagon absolute inset-0 bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
+                                <div class="inner-hexagon w-3/4 h-3/4 bg-gradient-to-tr from-teal-400 to-blue-500 flex items-center justify-center">
+                                    <svg viewBox="0 0 24 24" class="w-1/2 h-1/2 text-white">
+                                        <path fill="currentColor" d="M12,2L4,7V17L12,22L20,17V7L12,2M12,4L18,7.5V16.5L12,20L6,16.5V7.5L12,4Z" />
+                                        <path fill="currentColor" d="M12,7L8,10V14L12,17L16,14V10L12,7M12,9L14,10.5V13.5L12,15L10,13.5V10.5L12,9Z" />
+                                    </svg>
+                                </div>
+                            </div>
+                            
+                            <!-- Hexagon Particles -->
+                            <div class="hexagon-particle" style="top: 10%; left: 10%; width: 3px; height: 3px; background: #4fd1c5;"></div>
+                            <div class="hexagon-particle" style="top: 10%; right: 10%; width: 3px; height: 3px; background: #9f7aea;"></div>
+                            <div class="hexagon-particle" style="bottom: 10%; left: 10%; width: 3px; height: 3px; background: #4299e1;"></div>
+                            <div class="hexagon-particle" style="bottom: 10%; right: 10%; width: 3px; height: 3px; background: #f687b3;"></div>
+                        </div>
+                        
+                        <!-- Logo Text with Glitch Effect -->
+                        <div class="flex flex-col">
+                            <span class="text-white font-bold text-xl leading-tight glitch-text">Arian Ahmed Emon</span>
+                        </div>
+                    </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link text-white hover:text-purple-300 transition active-nav">Home</a>
+                    <a href="#about" class="nav-link text-white hover:text-purple-300 transition">About</a>
+                    <a href="#skills" class="nav-link text-white hover:text-purple-300 transition">Skills</a>
+                    <a href="#projects" class="nav-link text-white hover:text-purple-300 transition">Projects</a>
+                    <a href="#testimonials" class="nav-link text-white hover:text-purple-300 transition">Testimonials</a>
+                    <a href="#contact" class="nav-link text-white hover:text-purple-300 transition">Contact</a>
+                </div>
+                <!-- Dark/Light Mode Toggle -->
+                <div class="flex items-center space-x-4">
+                    <div class="relative inline-block w-12 mr-2 align-middle select-none">
+                        <input type="checkbox" name="toggle" id="toggle" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer"/>
+                        <label for="toggle" class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer"></label>
+                    </div>
+              
+                    
+                    <!-- Mobile menu button -->
+                    <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <div id="mobile-menu" class="md:hidden hidden nav-menu bg-opacity-90">
+            <div class="px-2 pt-2 pb-4 space-y-1 sm:px-3">
+                <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-purple-800">Home</a>
+                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-purple-800">About</a>
+                <a href="#skills" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-purple-800">Skills</a>
+                <a href="#projects" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-purple-800">Projects</a>
+                <a href="#testimonials" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-purple-800">Testimonials</a>
+                <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-purple-800">Contact</a>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section id="home" class="section min-h-screen flex items-center justify-center relative overflow-hidden">
+        <div class="container mx-auto px-6 py-20">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="md:w-1/2 mb-12 md:mb-0">
+                    <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                        Hey there! I’m <span class="holographic-text">Emon</span>
+                    </h1>
+                    <h2 class="text-2xl md:text-3xl font-semibold mb-6 text-purple-300">
+                        <div class="text-2xl text-gray-300 mb-2">I am a</div>
+                        <div class="text-4xl font-bold text-blue-400 flex items-center">
+                            <span class="typing-wrapper">
+                                <span class="typing-word active">Developer</span>
+                                <span class="typing-word">Entrepreneur</span>
+                                <span class="typing-word">Problem Solver</span>
+                            </span>
+                            <span class="typing-cursor"></span>
+                        </div>
+                    </h2>
+                    <p class="text-lg mb-8 text-gray-300 dark:text-gray-200 leading-relaxed">
+                        I build cross-platform mobile apps, AI-powered tools, and smart business solutions that drive innovation and growth.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#projects" class="btn-holographic px-8 py-3 rounded-full font-medium text-white">
+                            <i class="fas fa-code mr-2"></i> View Projects
+                        </a>
+                        <a href="#contact" class="px-6 py-3 bg-transparent border border-purple-500 hover:bg-purple-900/30 rounded-full font-medium text-purple-300 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/20">
+                            <i class="fas fa-paper-plane mr-2"></i> Contact Me
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <div class="relative w-64 h-64 md:w-80 md:h-80">
+                        <div class="absolute inset-0 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 opacity-20 blur-3xl"></div>
+                        <div class="relative w-full h-full flex items-center justify-center">
+                            <img src="img/image.jpeg" 
+                                 alt="Developer" 
+                                 class="w-full h-full object-cover rounded-full border-4 border-purple-500/30 hover:border-purple-500/50 transition-all duration-300 floating">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-down" onclick="document.getElementById('about').scrollIntoView({ behavior: 'smooth' })"></div>
+    </section>
+    
+    <!-- About Section -->
+    <section id="about" class="section py-20 bg-gradient-to-b from-dark to-gray-900">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold mb-16 text-center section-title">
+                About <span class="holographic-text">Me</span>
+            </h2>
+            
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <div class="lg:w-1/3 flex justify-center">
+                    <div class="relative w-64 h-64 md:w-80 md:h-80">
+                        <div class="absolute inset-0 rounded-2xl bg-gradient-to-br from-purple-500 to-pink-500 opacity-20 blur-3xl"></div>
+                        <div class="glass-card relative w-full h-full flex items-center justify-center p-1">
+                            <img src="img/image.jpeg" 
+                                 alt="Developer" 
+                                 class="w-full h-full object-cover rounded-xl">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="lg:w-2/3">
+                    <h3 class="text-2xl font-semibold mb-6 text-purple-300">Who am I?</h3>
+                    <p class="text-lg mb-6 text-gray-300 dark:text-gray-200 leading-relaxed">
+                        I’m a builder of bold ideas-crafting cross-platform mobile apps, intelligent AI tools, and smart business solutions that don’t just follow trends,
+                         but set them. With code as my canvas and innovation as my compass, I turn concepts into experiences that connect, empower, and transform. 
+                    </p>
+                    <p class="text-lg mb-8 text-gray-300 dark:text-gray-200 leading-relaxed">
+                        Whether it's a sleek app in your hand or an AI engine behind the scenes, I bring vision to life—seamlessly and smartly.
+                         I believe in technology that solves, scales, and surprises. This isn’t just what I do—it’s who I am. I’m here to shape the future, one brilliant solution at a time.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-8">
+                        <div class="flex items-center">
+                            <i class="fas fa-map-marker-alt text-purple-400 mr-2"></i>
+                            <span class="text-gray-300">Rajshahi,BD</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-envelope text-purple-400 mr-2"></i>
+                            <span class="text-gray-300">dev.emon.bd@gmail.com</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-phone text-purple-400 mr-2"></i>
+                            <span class="text-gray-300">+880 1328123xxx</span>
+                        </div>
+            
+                        <div class="flex items-center">
+                            <i class="fas fa-briefcase text-purple-400 mr-2"></i>
+                            <span class="text-gray-300">2+ Years Active</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-code text-purple-400 mr-2"></i>
+                            <span class="text-gray-300">Freelance</span>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#" class="px-6 py-3 bg-purple-600 hover:bg-purple-700 rounded-lg font-medium text-white transition-all duration-300">
+                            <i class="fas fa-download mr-2"></i> Download CV
+                        </a>
+                        <a href="#contact" class="px-6 py-3 bg-transparent border border-purple-500 hover:bg-purple-900/30 rounded-lg font-medium text-purple-300 transition-all duration-300">
+                            <i class="fas fa-paper-plane mr-2"></i> Hire Me
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Skills Section -->
+    <section id="skills" class="section py-20 bg-gradient-to-b from-gray-900 to-dark">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4 text-center section-title">
+                My <span class="holographic-text">Skills</span>
+            </h2>
+            <p class="text-lg mb-16 text-center text-gray-300 max-w-2xl mx-auto">
+                Here are the technologies and tools I work with to create amazing applications and solutions.
+            </p>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <!-- Flutter -->
+                <div class="skill-card glass-card p-6 rounded-xl flex flex-col items-center">
+                    <div class="w-16 h-16 mb-4 flex items-center justify-center bg-purple-500/10 rounded-full">
+                        <i class="fab fa-flutter text-3xl text-purple-400"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2 text-center">Flutter</h3>
+                    <div class="w-full bg-gray-700 rounded-full h-2 mb-3">
+                        <div class="progress-bar h-2 rounded-full" style="width: 95%"></div>
+                    </div>
+                    <p class="text-sm text-gray-400 text-center">Expert Level</p>
+                </div>
+                
+                <!-- Dart -->
+                <div class="skill-card glass-card p-6 rounded-xl flex flex-col items-center">
+                    <div class="w-16 h-16 mb-4 flex items-center justify-center bg-blue-500/10 rounded-full">
+                        <i class="fas fa-code text-3xl text-blue-400"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2 text-center">Dart</h3>
+                    <div class="w-full bg-gray-700 rounded-full h-2 mb-3">
+                        <div class="progress-bar h-2 rounded-full" style="width: 90%"></div>
+                    </div>
+                    <p class="text-sm text-gray-400 text-center">Advanced</p>
+                </div>
+                
+                <!-- Firebase -->
+                <div class="skill-card glass-card p-6 rounded-xl flex flex-col items-center">
+                    <div class="w-16 h-16 mb-4 flex items-center justify-center bg-orange-500/10 rounded-full">
+                        <i class="fas fa-fire text-3xl text-orange-400"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2 text-center">Firebase</h3>
+                    <div class="w-full bg-gray-700 rounded-full h-2 mb-3">
+                        <div class="progress-bar h-2 rounded-full" style="width: 85%"></div>
+                    </div>
+                    <p class="text-sm text-gray-400 text-center">Advanced</p>
+                </div>
+                
+                <!-- JavaScript -->
+                <div class="skill-card glass-card p-6 rounded-xl flex flex-col items-center">
+                    <div class="w-16 h-16 mb-4 flex items-center justify-center bg-yellow-500/10 rounded-full">
+                        <i class="fab fa-js text-3xl text-yellow-400"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2 text-center">JavaScript</h3>
+                    <div class="w-full bg-gray-700 rounded-full h-2 mb-3">
+                        <div class="progress-bar h-2 rounded-full" style="width: 90%"></div>
+                    </div>
+                    <p class="text-sm text-gray-400 text-center">Advanced</p>
+                </div>
+                
+                <!-- React -->
+                <div class="skill-card glass-card p-6 rounded-xl flex flex-col items-center">
+                    <div class="w-16 h-16 mb-4 flex items-center justify-center bg-blue-400/10 rounded-full">
+                        <i class="fab fa-react text-3xl text-blue-300"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2 text-center">React.js</h3>
+                    <div class="w-full bg-gray-700 rounded-full h-2 mb-3">
+                        <div class="progress-bar h-2 rounded-full" style="width: 85%"></div>
+                    </div>
+                    <p class="text-sm text-gray-400 text-center">Advanced</p>
+                </div>
+                
+                <!-- Next.js -->
+                <div class="skill-card glass-card p-6 rounded-xl flex flex-col items-center">
+                    <div class="w-16 h-16 mb-4 flex items-center justify-center bg-gray-500/10 rounded-full">
+                        <i class="fas fa-bolt text-3xl text-gray-300"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2 text-center">Next.js</h3>
+                    <div class="w-full bg-gray-700 rounded-full h-2 mb-3">
+                        <div class="progress-bar h-2 rounded-full" style="width: 80%"></div>
+                    </div>
+                    <p class="text-sm text-gray-400 text-center">Intermediate</p>
+                </div>
+                
+                <!-- Node.js -->
+                <div class="skill-card glass-card p-6 rounded-xl flex flex-col items-center">
+                    <div class="w-16 h-16 mb-4 flex items-center justify-center bg-green-500/10 rounded-full">
+                        <i class="fab fa-node-js text-3xl text-green-400"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2 text-center">Node.js</h3>
+                    <div class="w-full bg-gray-700 rounded-full h-2 mb-3">
+                        <div class="progress-bar h-2 rounded-full" style="width: 75%"></div>
+                    </div>
+                    <p class="text-sm text-gray-400 text-center">Intermediate</p>
+                </div>
+                
+                <!-- AI/ML -->
+                <div class="skill-card glass-card p-6 rounded-xl flex flex-col items-center">
+                    <div class="w-16 h-16 mb-4 flex items-center justify-center bg-pink-500/10 rounded-full">
+                        <i class="fas fa-brain text-3xl text-pink-400"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2 text-center">AI Integration</h3>
+                    <div class="w-full bg-gray-700 rounded-full h-2 mb-3">
+                        <div class="progress-bar h-2 rounded-full" style="width: 70%"></div>
+                    </div>
+                    <p class="text-sm text-gray-400 text-center">Intermediate</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Projects Section -->
+    <section id="projects" class="section py-20 bg-gradient-to-b from-dark to-gray-900">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4 text-center section-title">
+                My <span class="holographic-text">Projects</span>
+            </h2>
+            <p class="text-lg mb-16 text-center text-gray-300 max-w-2xl mx-auto">
+                Here are some of my recent projects. Each one was carefully crafted to solve specific problems.
+            </p>
+            
+            <div class="flex justify-center mb-12">
+                <div class="inline-flex rounded-md shadow-sm" role="group">
+                    <button type="button" class="px-4 py-2 text-sm font-medium rounded-l-lg bg-purple-600 text-white">
+                        All
+                    </button>
+                    <button type="button" class="px-4 py-2 text-sm font-medium bg-gray-700 text-gray-300 hover:bg-gray-600">
+                        Flutter
+                    </button>
+                    <button type="button" class="px-4 py-2 text-sm font-medium bg-gray-700 text-gray-300 hover:bg-gray-600">
+                        Web
+                    </button>
+                    <button type="button" class="px-4 py-2 text-sm font-medium rounded-r-lg bg-gray-700 text-gray-300 hover:bg-gray-600">
+                        Full Stack
+                    </button>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="project-card glass-card rounded-xl overflow-hidden gradient-border">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" 
+                             alt="Project 1" 
+                             class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4">
+                            <span class="bg-purple-600 text-white text-xs font-medium px-2.5 py-0.5 rounded">Flutter</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">E-Commerce App</h3>
+                        <p class="text-gray-400 mb-4">A complete e-commerce solution with payment integration, product catalog, and user management.</p>
+                        <div class="flex justify-between items-center">
+                            <a href="#" class="text-purple-400 hover:text-purple-300 flex items-center">
+                                <i class="fas fa-external-link-alt mr-1"></i> Live Demo
+                            </a>
+                            <a href="#" class="text-gray-400 hover:text-white">
+                                <i class="fab fa-github text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="project-card glass-card rounded-xl overflow-hidden gradient-border">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1469&q=80" 
+                             alt="Project 2" 
+                             class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4">
+                            <span class="bg-blue-600 text-white text-xs font-medium px-2.5 py-0.5 rounded">Web</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Portfolio Website</h3>
+                        <p class="text-gray-400 mb-4">A responsive portfolio website with animations and contact form built with Next.js.</p>
+                        <div class="flex justify-between items-center">
+                            <a href="#" class="text-purple-400 hover:text-purple-300 flex items-center">
+                                <i class="fas fa-external-link-alt mr-1"></i> Live Demo
+                            </a>
+                            <a href="#" class="text-gray-400 hover:text-white">
+                                <i class="fab fa-github text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="project-card glass-card rounded-xl overflow-hidden gradient-border">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" 
+                             alt="Project 3" 
+                             class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4">
+                            <span class="bg-green-600 text-white text-xs font-medium px-2.5 py-0.5 rounded">Full Stack</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Task Management</h3>
+                        <p class="text-gray-400 mb-4">A productivity app with real-time collaboration features built with Flutter and Firebase.</p>
+                        <div class="flex justify-between items-center">
+                            <a href="#" class="text-purple-400 hover:text-purple-300 flex items-center">
+                                <i class="fas fa-external-link-alt mr-1"></i> Live Demo
+                            </a>
+                            <a href="#" class="text-gray-400 hover:text-white">
+                                <i class="fab fa-github text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 4 -->
+                <div class="project-card glass-card rounded-xl overflow-hidden gradient-border">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1528&q=80" 
+                             alt="Project 4" 
+                             class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4">
+                            <span class="bg-purple-600 text-white text-xs font-medium px-2.5 py-0.5 rounded">Flutter</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Fitness Tracker</h3>
+                        <p class="text-gray-400 mb-4">A health and fitness app with workout plans, progress tracking, and nutrition logging.</p>
+                        <div class="flex justify-between items-center">
+                            <a href="#" class="text-purple-400 hover:text-purple-300 flex items-center">
+                                <i class="fas fa-external-link-alt mr-1"></i> Live Demo
+                            </a>
+                            <a href="#" class="text-gray-400 hover:text-white">
+                                <i class="fab fa-github text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 5 -->
+                <div class="project-card glass-card rounded-xl overflow-hidden gradient-border">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1636&q=80" 
+                             alt="Project 5" 
+                             class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4">
+                            <span class="bg-blue-600 text-white text-xs font-medium px-2.5 py-0.5 rounded">Web</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">AI Image Generator</h3>
+                        <p class="text-gray-400 mb-4">A web app that generates images from text prompts using AI and displays them in a gallery.</p>
+                        <div class="flex justify-between items-center">
+                            <a href="#" class="text-purple-400 hover:text-purple-300 flex items-center">
+                                <i class="fas fa-external-link-alt mr-1"></i> Live Demo
+                            </a>
+                            <a href="#" class="text-gray-400 hover:text-white">
+                                <i class="fab fa-github text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 6 -->
+                <div class="project-card glass-card rounded-xl overflow-hidden gradient-border">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1636&q=80" 
+                             alt="Project 6" 
+                             class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4">
+                            <span class="bg-green-600 text-white text-xs font-medium px-2.5 py-0.5 rounded">Full Stack</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Social Media Dashboard</h3>
+                        <p class="text-gray-400 mb-4">A dashboard for managing social media accounts with analytics and scheduling features.</p>
+                        <div class="flex justify-between items-center">
+                            <a href="#" class="text-purple-400 hover:text-purple-300 flex items-center">
+                                <i class="fas fa-external-link-alt mr-1"></i> Live Demo
+                            </a>
+                            <a href="#" class="text-gray-400 hover:text-white">
+                                <i class="fab fa-github text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="inline-flex items-center px-6 py-3 border border-purple-500 text-purple-400 font-medium rounded-lg hover:bg-purple-900/30 transition-all duration-300">
+                    View All Projects
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="section py-20 bg-gradient-to-b from-gray-900 to-dark">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4 text-center section-title">
+                Client <span class="holographic-text">Testimonials</span>
+            </h2>
+            <p class="text-lg mb-16 text-center text-gray-300 max-w-2xl mx-auto">
+                Here's what some of my clients and colleagues have to say about my work.
+            </p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card glass-card p-8 rounded-xl">
+                    <div class="flex items-center mb-4">
+                        <img class="w-12 h-12 rounded-full mr-4" src="https://randomuser.me/api/portraits/women/43.jpg" alt="Sarah Johnson">
+                        <div>
+                            <h4 class="text-lg font-semibold">Sarah Johnson</h4>
+                            <p class="text-purple-400 text-sm">CEO, TechSolutions</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4">
+                        "Emon developed our flagship mobile app with Flutter and it exceeded all our expectations. The app is beautiful, performant, and has significantly increased our user engagement."
+                    </p>
+                    <div class="flex text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card glass-card p-8 rounded-xl">
+                    <div class="flex items-center mb-4">
+                        <img class="w-12 h-12 rounded-full mr-4" src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael Chen">
+                        <div>
+                            <h4 class="text-lg font-semibold">Michael Chen</h4>
+                            <p class="text-purple-400 text-sm">CTO, DigitalAgency</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4">
+                        "Working with Emon on our web platform was a pleasure. His attention to detail and problem-solving skills are exceptional. He delivered the project ahead of schedule with zero issues."
+                    </p>
+                    <div class="flex text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card glass-card p-8 rounded-xl">
+                    <div class="flex items-center mb-4">
+                        <img class="w-12 h-12 rounded-full mr-4" src="https://randomuser.me/api/portraits/women/65.jpg" alt="Emily Rodriguez">
+                        <div>
+                            <h4 class="text-lg font-semibold">Emily Rodriguez</h4>
+                            <p class="text-purple-400 text-sm">Product Manager, StartupX</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4">
+                        "Emon's Flutter expertise helped us build a cross-platform app that looks and feels native on both iOS and Android. His communication was excellent throughout the project."
+                    </p>
+                    <div class="flex text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="flex justify-center mt-12">
+                <div class="flex space-x-2">
+                    <button class="w-3 h-3 rounded-full bg-purple-600"></button>
+                    <button class="w-3 h-3 rounded-full bg-gray-700"></button>
+                    <button class="w-3 h-3 rounded-full bg-gray-700"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact" class="section py-20 bg-gradient-to-b from-dark to-gray-900">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4 text-center section-title">
+                Get In <span class="holographic-text">Touch</span>
+            </h2>
+            <p class="text-lg mb-16 text-center text-gray-300 max-w-2xl mx-auto">
+                Have a project in mind or want to discuss potential opportunities? Feel free to reach out!
+            </p>
+            
+            <div class="flex flex-col lg:flex-row gap-12">
+                <div class="lg:w-1/2">
+                    <div class="glass-card p-8 rounded-xl h-full">
+                        <h3 class="text-2xl font-semibold mb-6">Contact Information</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 w-10 h-10 rounded-full bg-purple-600/20 flex items-center justify-center text-purple-400">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-medium">Location</h4>
+                                    <p class="text-gray-400">Rajshahi,Bangladesh</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 w-10 h-10 rounded-full bg-purple-600/20 flex items-center justify-center text-purple-400">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-medium">Email</h4>
+                                    <p class="text-gray-400">dev.emon.bd@gmail.com</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 w-10 h-10 rounded-full bg-purple-600/20 flex items-center justify-center text-purple-400">
+                                    <i class="fas fa-phone-alt"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-medium">Phone</h4>
+                                    <p class="text-gray-400">+880 132812xxxx</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 w-10 h-10 rounded-full bg-purple-600/20 flex items-center justify-center text-purple-400">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-medium">Working Hours</h4>
+                                    <p class="text-gray-400">Mon-Fri: 9AM - 6PM PST</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8">
+                            <h4 class="text-lg font-medium mb-4">Follow Me</h4>
+                            <div class="flex space-x-4">
+                                <a href="#" class="social-icon w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-300 hover:text-white hover:bg-purple-600">
+                                    <button class="fab fa-github"></button>
+                                </a>
+                                <a href="#" class="social-icon w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-300 hover:text-white hover:bg-blue-600">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="#" class="social-icon w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-300 hover:text-white hover:bg-blue-400">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="social-icon w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-300 hover:text-white hover:bg-pink-600">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="lg:w-1/2">
+                    <div class="glass-card p-8 rounded-xl">
+                        <h3 class="text-2xl font-semibold mb-6">Send Me a Message</h3>
+                        
+                        <form class="space-y-6">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="name" class="block text-sm font-medium mb-2">Your Name</label>
+                                    <input type="text" id="name" class="contact-input w-full px-4 py-3 rounded-lg border border-gray-700 focus:border-purple-500 focus:outline-none transition">
+                                </div>
+                                <div>
+                                    <label for="email" class="block text-sm font-medium mb-2">Your Email</label>
+                                    <input type="email" id="email" class="contact-input w-full px-4 py-3 rounded-lg border border-gray-700 focus:border-purple-500 focus:outline-none transition">
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label for="subject" class="block text-sm font-medium mb-2">Subject</label>
+                                <input type="text" id="subject" class="contact-input w-full px-4 py-3 rounded-lg border border-gray-700 focus:border-purple-500 focus:outline-none transition">
+                            </div>
+                            
+                            <div>
+                                <label for="message" class="block text-sm font-medium mb-2">Your Message</label>
+                                <textarea id="message" rows="5" class="contact-input w-full px-4 py-3 rounded-lg border border-gray-700 focus:border-purple-500 focus:outline-none transition"></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn-holographic w-full px-6 py-3 rounded-lg font-medium text-white">
+                                <i class="fas fa-paper-plane mr-2"></i> Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="py-8 bg-gray-900">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <a href="#" class="text-2xl font-bold holographic-text">Arian Ahmed Emon</a>
+                </div>
+                <div class="text-gray-400 text-sm">
+                    © 2023 Arian Ahmed Emon. All rights reserved.
+                </div>
+                <div class="mt-4 md:mt-0">
+                    <a href="#home" class="text-purple-400 hover:text-purple-300 flex items-center">
+                        <i class="fas fa-arrow-up mr-2"></i> Back to Top
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Dark/Light mode toggle
+            const toggle = document.getElementById('toggle');
+            const body = document.body;
+            
+            // Check for saved user preference, if any
+            if (localStorage.getItem('darkMode') === 'false') {
+                body.classList.remove('dark');
+                toggle.checked = true;
+            }
+            
+            toggle.addEventListener('change', function() {
+                if (this.checked) {
+                    body.classList.remove('dark');
+                    localStorage.setItem('darkMode', 'false');
+                } else {
+                    body.classList.add('dark');
+                    localStorage.setItem('darkMode', 'true');
+                }
+            });
+            
+            // Mobile menu toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            mobileMenuButton.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            // Close mobile menu when clicking on a link
+            const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+            mobileMenuLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+            
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Update active navigation link on scroll
+            const sections = document.querySelectorAll('.section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            window.addEventListener('scroll', function() {
+                let current = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    
+                    if (pageYOffset >= (sectionTop - 100)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                
+                navLinks.forEach(link => {
+                    link.classList.remove('active-nav');
+                    if (link.getAttribute('href') === `#${current}`) {
+                        link.classList.add('active-nav');
+                    }
+                });
+            });
+            
+            // Create background particles
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 50;
+            
+            for (let i = 0; i < particleCount; i++) {
+                createParticle();
+            }
+            
+            function createParticle() {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                const size = Math.random() * 4 + 1;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.top = `${Math.random() * 100 + 100}%`;
+                
+                const duration = Math.random() * 15 + 15;
+                const delay = Math.random() * 10;
+                particle.style.animationDuration = `${duration}s`;
+                particle.style.animationDelay = `${delay}s`;
+                
+                // Color variations
+                const colors = ['#6366f1', '#8b5cf6', '#ec4899', '#22d3ee', '#a5b4fc'];
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                particle.style.background = color;
+                particle.style.boxShadow = `0 0 15px ${color}`;
+                
+                particlesContainer.appendChild(particle);
+                
+                particle.addEventListener('animationend', function() {
+                    particle.style.top = '100%';
+                    particle.style.left = `${Math.random() * 100}%`;
+                    particle.style.animation = 'none';
+                    void particle.offsetWidth;
+                    particle.style.animation = `float ${duration}s infinite ease-in-out`;
+                });
+            }
+            
+            // Create cosmic rays
+            const raysContainer = document.getElementById('cosmic-rays');
+            const rayCount = 6;
+            
+            for (let i = 0; i < rayCount; i++) {
+                createRay();
+            }
+            
+            function createRay() {
+                const ray = document.createElement('div');
+                ray.classList.add('cosmic-ray');
+                
+                const length = Math.random() * 300 + 100;
+                ray.style.width = `${length}px`;
+                
+                ray.style.left = `${Math.random() * 100}%`;
+                ray.style.top = `${Math.random() * 100}%`;
+                
+                const duration = Math.random() * 20 + 15;
+                const delay = Math.random() * 10;
+                ray.style.animationDuration = `${duration}s`;
+                ray.style.animationDelay = `${delay}s`;
+                
+                raysContainer.appendChild(ray);
+                
+                ray.addEventListener('animationend', function() {
+                    ray.style.animation = 'none';
+                    void ray.offsetWidth;
+                    ray.style.animation = `ray-sweep ${duration}s infinite linear`;
+                });
+            }
+            
+            // Create floating icons
+            const iconsContainer = document.getElementById('floating-icons');
+            const iconCount = 10;
+            const icons = ['atom', 'meteor', 'rocket', 'satellite', 'star', 'moon', 'sun', 'planet-ringed', 'ufo', 'robot'];
+            
+            for (let i = 0; i < iconCount; i++) {
+                createIcon();
+            }
+            
+            function createIcon() {
+                const icon = document.createElement('i');
+                icon.classList.add('floating-icon', 'fas', `fa-${icons[Math.floor(Math.random() * icons.length)]}`);
+                
+                icon.style.left = `${Math.random() * 100}%`;
+                icon.style.top = `${Math.random() * 100 + 100}%`;
+                
+                const duration = Math.random() * 20 + 20;
+                const delay = Math.random() * 15;
+                icon.style.animationDuration = `${duration}s`;
+                icon.style.animationDelay = `${delay}s`;
+                
+                // Color variations
+                const colors = ['#6366f1', '#8b5cf6', '#ec4899', '#22d3ee'];
+                icon.style.color = colors[Math.floor(Math.random() * colors.length)];
+                
+                iconsContainer.appendChild(icon);
+                
+                icon.addEventListener('animationend', function() {
+                    icon.style.top = '100%';
+                    icon.style.left = `${Math.random() * 100}%`;
+                    icon.style.animation = 'none';
+                    void icon.offsetWidth;
+                    icon.style.animation = `icon-float ${duration}s infinite linear`;
+                });
+            }
+            
+            // Animate skill bars on scroll
+            const skillBars = document.querySelectorAll('.progress-bar');
+            
+            function animateSkillBars() {
+                skillBars.forEach(bar => {
+                    const width = bar.style.width;
+                    bar.style.width = '0';
+                    
+                    setTimeout(() => {
+                        bar.style.width = width;
+                    }, 100);
+                });
+            }
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateSkillBars();
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            document.querySelector('#skills').style.opacity = '1';
+            observer.observe(document.querySelector('#skills'));
+        });
+        document.addEventListener('DOMContentLoaded', function() {
+            const words = document.querySelectorAll('.typing-word');
+            const wrapper = document.querySelector('.typing-wrapper');
+            const pauseBtn = document.getElementById('pauseBtn');
+            const resumeBtn = document.getElementById('resumeBtn');
+            
+            let currentIndex = 0;
+            let intervalId = null;
+            const typingSpeed = 100; // typing speed in ms
+            const wordDelay = 2000; // delay between words in ms
+            
+            function typeWord(word) {
+                let wordText = word.textContent;
+                let i = 0;
+                word.style.width = '0';
+                word.textContent = '';
+                
+                function type() {
+                    if (i < wordText.length) {
+                        word.textContent += wordText.charAt(i);
+                        word.style.width = (i+1) + 'ch';
+                        i++;
+                        setTimeout(type, typingSpeed);
+                    }
+                }
+                
+                type();
+            }
+            
+            function updateWords() {
+                // Set all words to inactive first
+                words.forEach(word => {
+                    word.classList.remove('active');
+                    word.classList.add('inactive');
+                });
+                
+                // Type the new word
+                typeWord(words[currentIndex]);
+                
+                // Set current word to active
+                words[currentIndex].classList.remove('inactive');
+                words[currentIndex].classList.add('active');
+                
+                // Update index for next word
+                currentIndex = (currentIndex + 1) % words.length;
+            }
+            
+            function startRotation() {
+                if (!intervalId) {
+                    updateWords(); // Start immediately
+                    intervalId = setInterval(updateWords, wordDelay + (words[0].textContent.length * typingSpeed));
+                }
+            }
+            
+            function pauseRotation() {
+                if (intervalId) {
+                    clearInterval(intervalId);
+                    intervalId = null;
+                }
+            }
+            
+            // Initialize
+            startRotation();
+            
+            // Button events
+            pauseBtn.addEventListener('click', pauseRotation);
+            resumeBtn.addEventListener('click', startRotation);
+            
+            // Pause on hover for better readability
+            wrapper.addEventListener('mouseenter', pauseRotation);
+            wrapper.addEventListener('mouseleave', startRotation);
+        });
+          window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header-container');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Generate more particles dynamically
+        document.addEventListener('DOMContentLoaded', function() {
+            const logo = document.querySelector('.quantum-logo');
+            const colors = ['#4fd1c5', '#9f7aea', '#4299e1', '#f687b3'];
+            
+            for (let i = 0; i < 8; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'hexagon-particle';
+                particle.style.cssText = `
+                    width: ${Math.random() * 3 + 1}px;
+                    height: ${Math.random() * 3 + 1}px;
+                    background: ${colors[Math.floor(Math.random() * colors.length)]};
+                    top: ${Math.random() * 80 + 10}%;
+                    left: ${Math.random() * 80 + 10}%;
+                    animation-duration: ${Math.random() * 6 + 4}s;
+                `;
+                logo.appendChild(particle);
+            }
+        });
+    
+    </script>
+</body>
+</html>
