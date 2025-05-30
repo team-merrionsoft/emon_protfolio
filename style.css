@@ -1,0 +1,222 @@
+ @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Exo+2:wght@200;300;400;500;600;700;800;900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 5rem;
+        }
+        
+        body {
+            font-family: 'Exo 2', sans-serif;
+            background-color: #0a0a12;
+            color: white;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(157, 0, 255, 0.15) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(0, 245, 255, 0.15) 0%, transparent 20%),
+                linear-gradient(to bottom, #0a0a12, #090916);
+            background-attachment: fixed;
+        }
+        
+        .glass {
+            background: rgba(15, 15, 25, 0.4);
+            backdrop-filter: blur(16px) saturate(180%);
+            -webkit-backdrop-filter: blur(16px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .cyber-text {
+            position: relative;
+            background: linear-gradient(45deg, #00f5ff, #9d00ff, #ff00e0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 10px rgba(157, 0, 255, 0.5);
+        }
+        
+        .neon-border {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .neon-border::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: inherit;
+            background: linear-gradient(45deg, #00f5ff, #9d00ff, #ff00e0);
+            mask: 
+                linear-gradient(#fff 0 0) content-box, 
+                linear-gradient(#fff 0 0);
+            -webkit-mask: 
+                linear-gradient(#fff 0 0) content-box, 
+                linear-gradient(#fff 0 0);
+            mask-composite: exclude;
+            -webkit-mask-composite: xor;
+            z-index: -1;
+            padding: 2px;
+        }
+        
+        .neon-text {
+            text-shadow: 0 0 10px #00f5ff, 0 0 20px #00f5ff, 0 0 30px #9d00ff;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 25px;
+            height: 100%;
+            width: 3px;
+            background: linear-gradient(to bottom, #9d00ff, #00f5ff, #ff00e0);
+        }
+        
+        .project-card:hover .project-overlay {
+            opacity: 1;
+            transform: scale(1);
+        }
+        
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .cursor-trail {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(157, 0, 255, 0.7);
+            pointer-events: none;
+            z-index: 9999;
+        }
+        
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 4px;
+            background: linear-gradient(90deg, #9d00ff, #00f5ff, #ff00e0);
+            z-index: 1000;
+            transition: width 0.3s ease-out;
+        }
+        
+        .neon-title {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .neon-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #9d00ff, #00f5ff);
+            border-radius: 5px;
+            animation: spotlight 6s ease infinite;
+        }
+        
+        .matrix-grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: 10px 10px;
+            background-image: 
+                linear-gradient(to right, rgba(0, 245, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(0, 245, 255, 0.03) 1px, transparent 1px);
+            z-index: -1;
+            pointer-events: none;
+            animation: scan 15s linear infinite;
+        }
+        
+        .animated-bg {
+            background: linear-gradient(-45deg, #0a0a12, #090916, #0a0f1a, #0a0812);
+            background-size: 400% 400%;
+            animation: spotlight 15s ease infinite;
+        }
+        
+        .tech-card {
+            perspective: 1000px;
+        }
+        
+        .tech-inner {
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+        
+        .tech-card:hover .tech-inner {
+            transform: rotateY(180deg);
+        }
+        
+        .tech-front, .tech-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+        }
+        
+        .tech-back {
+            transform: rotateY(180deg);
+        }
+        
+        .holographic {
+            background: linear-gradient(135deg, rgba(15, 15, 25, 0.6), rgba(15, 15, 25, 0.8));
+            position: relative;
+        }
+        
+        .holographic::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #00f5ff, #9d00ff, #ff00e0);
+            z-index: -1;
+            filter: blur(20px);
+            opacity: 0.5;
+        }
+        
+        .animated-circle {
+            position: absolute;
+            border-radius: 50%;
+            border: 2px solid rgba(0, 245, 255, 0.4);
+            pointer-events: none;
+        }
+
+        /* Animation utilities */
+        .gsap-fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .gsap-slide-left {
+            opacity: 0;
+            transform: translateX(50px);
+        }
+
+        .gsap-slide-right {
+            opacity: 0;
+            transform: translateX(-50px);
+        }
+
+        .gsap-reveal-in {
+            clip-path: inset(0 100% 0 0);
+        }
+
+        .gsap-scale-in {
+            transform: scale(0.95);
+            opacity: 0;
+        }

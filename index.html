@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arian Ahmed Emon | Tech Portfolio</title>
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/TextPlugin.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Exo+2:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: '#0a0a12',
+                        cyberBlue: '#00f5ff',
+                        matrixGreen: '#00ff9d',
+                        neonPink: '#ff00e0',
+                        cyberPurple: '#9d00ff',
+                        glass: 'rgba(15, 15, 25, 0.5)',
+                    },
+                    fontFamily: {
+                        orbitron: ['Orbitron', 'sans-serif'],
+                        exo: ['Exo 2', 'sans-serif'],
+                    },
+                    keyframes: {
+                        float: {
+                          '0%, 100%': { transform: 'translateY(0px)' },
+                          '50%': { transform: 'translateY(-20px)' },
+                        },
+                        pulseSlow: {
+                          '0%, 100%': { transform: 'scale(1)' },
+                          '50%': { transform: 'scale(1.05)' },
+                        },
+                        spotlight: {
+                          '0%': { backgroundPosition: '0% 50%' },
+                          '50%': { backgroundPosition: '100% 50%' },
+                          '100%': { backgroundPosition: '0% 50%' },
+                        },
+                        scan: {
+                          '0%': { backgroundPosition: '0% 0%' },
+                          '100%': { backgroundPosition: '100% 100%' },
+                        },
+                        neon: {
+                          '0%': { textShadow: '0 0 2px #fff, 0 0 4px #fff, 0 0 6px #00f5ff, 0 0 10px #00f5ff, 0 0 12px #00f5ff, 0 0 15px #00f5ff, 0 0 25px #00f5ff' },
+                          '100%': { textShadow: '0 0 2px #fff, 0 0 4px #fff, 0 0 6px #ff00e0, 0 0 10px #ff00e0, 0 0 12px #ff00e0, 0 0 15px #ff00e0, 0 0 25px #ff00e0' },
+                        }
+                      },
+                      animation: {
+                        float: 'float 6s ease-in-out infinite',
+                        pulseSlow: 'pulseSlow 6s ease-in-out infinite',
+                        spotlight: 'spotlight 10s ease infinite',
+                        scan: 'scan 8s linear infinite',
+                        neon: 'neon 3s ease-in-out infinite alternate'
+                      }
+                }
+            }
+        }
+    </script>
+  
+</head>
+<body>
+    <!-- Scrolling Progress Bar -->
+    <div class="progress-bar"></div>
+    
+    <!-- Background Matrix Grid -->
+    <div class="matrix-grid"></div>
+    
+    <!-- Navigation -->
+    <nav class="glass fixed w-full py-4 z-50">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold">
+                <span class="cyber-text">Arian</span>
+                <span class="text-white">Emon</span>
+            </a>
+            
+            <div class="hidden md:flex space-x-8">
+                <a href="#about" class="hover:text-cyberBlue transition duration-300 group">
+                    <span class="group-hover:tracking-wider transition-all duration-300">About</span>
+                </a>
+                <a href="#skills" class="hover:text-matrixGreen transition duration-300 group">
+                    <span class="group-hover:tracking-wider transition-all duration-300">Skills</span>
+                </a>
+                <a href="#experience" class="hover:text-neonPink transition duration-300 group">
+                    <span class="group-hover:tracking-wider transition-all duration-300">Experience</span>
+                </a>
+                <a href="#projects" class="hover:text-cyberPurple transition duration-300 group">
+                    <span class="group-hover:tracking-wider transition-all duration-300">Projects</span>
+                </a>
+                <a href="#contact" class="hover:text-cyberBlue transition duration-300 group">
+                    <span class="group-hover:tracking-wider transition-all duration-300">Contact</span>
+                </a>
+            </div>
+            
+            <button id="menu-toggle" class="md:hidden text-xl">
+                <i class="fas fa-bars text-cyberBlue"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden glass absolute top-full left-0 w-full px-6 py-4 hidden">
+            <div class="flex flex-col space-y-4">
+                <a href="#about" class="hover:text-cyberBlue transition duration-300">About</a>
+                <a href="#skills" class="hover:text-matrixGreen transition duration-300">Skills</a>
+                <a href="#experience" class="hover:text-neonPink transition duration-300">Experience</a>
+                <a href="#projects" class="hover:text-cyberPurple transition duration-300">Projects</a>
+                <a href="#contact" class="hover:text-cyberBlue transition duration-300">Contact</a>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero Section with GSAP Animations -->
+    <section class="min-h-screen flex items-center relative overflow-hidden pt-16 animated-bg">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row items-center py-20">
+            <!-- Text Content -->
+            <div class="md:w-1/2 mb-16 md:mb-0">
+                <h1 id="hero-title" class="text-4xl md:text-6xl font-bold font-orbitron mb-4 opacity-0">
+                    <span class="cyber-text">Arian Ahmed Emon</span>
+                </h1>
+                <h2 id="hero-subtitle" class="text-2xl md:text-4xl font-semibold mb-6 font-orbitron">
+                    <span class="text-matrixGreen" id="typewriter"></span>
+                </h2>
+                <p id="hero-description" class="text-xl mb-8 opacity-0">
+                     Crafting <span class="text-cyberBlue">mobile experiences</span>with<span class="text-matrixGreen">Flutter</span> , blending <span class="text-neonPink">innovation</span> and <span class="text-cyberBlue">efficiency</span> to build smooth, responsive apps.</p>
+                </p>
+                <div id="hero-buttons" class="flex space-x-4 opacity-0">
+                    <a href="#projects" class="glass px-6 py-3 rounded-full font-semibold hover:bg-neonPink transition-all duration-300 transform hover:-translate-y-1 group">
+                        <span class="group-hover:tracking-wider transition-all">View Projects</span>
+                    </a>
+                    <a href="#contact" class="glass px-6 py-3 rounded-full font-semibold border border-cyberBlue hover:bg-cyberBlue hover:text-dark transition-all duration-300 transform hover:-translate-y-1 group">
+                        <span class="group-hover:tracking-wider transition-all">Get in Touch</span>
+                    </a>
+                </div>
+                
+                <!-- Tech Stack Badges -->
+                <div id="tech-badges" class="mt-12 flex flex-wrap gap-3 opacity-0">
+                    <span class="glass px-4 py-2 rounded-full text-sm group hover:bg-cyberPurple transition-all duration-300">
+                        <i class="fab fa-flutter text-cyberBlue mr-2"></i>Flutter
+                    </span>
+                    <span class="glass px-4 py-2 rounded-full text-sm group hover:bg-matrixGreen transition-all duration-300">
+                        <i class="fab fa-react text-cyberBlue mr-2"></i>React Native
+                    </span>
+                    <span class="glass px-4 py-2 rounded-full text-sm group hover:bg-cyberBlue transition-all duration-300">
+                        <i class="fab fa-apple text-white mr-2"></i>iOS Swift
+                    </span>
+                    <span class="glass px-4 py-2 rounded-full text-sm group hover:bg-neonPink transition-all duration-300">
+                        <i class="fab fa-android text-matrixGreen mr-2"></i>Android Kotlin
+                    </span>
+                </div>
+            </div>
+            
+            <!-- Animated Profile -->
+            <div id="hero-profile" class="md:w-1/2 flex justify-center opacity-0">
+                <div class="relative w-72 h-72 floating">
+                    <div class="absolute w-full h-full rounded-full bg-gradient-to-br from-cyberBlue to-neonPink opacity-50 animate-ping" style="animation-duration: 4s"></div>
+                    <div class="glass w-72 h-72 rounded-full flex items-center justify-center relative overflow-hidden border-4 border-opacity-30 border-cyberBlue transform rotate-0 group-hover:rotate-3 transition-all duration-500">
+                        <div class="relative">
+                            <img src="images/Emon.jpg" 
+                                 alt="Arian Ahmed Emon" class="rounded-full w-52 h-52 object-cover mx-auto">
+                        </div>
+                    </div>
+                    
+                    <!-- Floating elements -->
+                    <div class="absolute top-0 right-0 w-16 h-16 rounded-full glass flex items-center justify-center floating" style="animation-delay: 1.5s">
+                        <i class="fab fa-flutter text-cyberBlue text-2xl"></i>
+                    </div>
+                    <div class="absolute bottom-0 left-0 w-16 h-16 rounded-full glass flex items-center justify-center floating" style="animation-delay: 2s">
+                        <i class="fab fa-apple text-white text-2xl"></i>
+                    </div>
+                    <div class="absolute bottom-0 right-0 w-16 h-16 rounded-full glass flex items-center justify-center floating" style="animation-delay: 2.5s">
+                        <i class="fab fa-android text-matrixGreen text-2xl"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Floating particles background -->
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden -z-10">
+            <div class="particle floating absolute rounded-full" style="top: 20%; left: 10%; width: 6px; height: 6px; background: #9d00ff; animation-delay: 0s;"></div>
+            <div class="particle floating absolute rounded-full" style="top: 60%; left: 90%; width: 8px; height: 8px; background: #00f5ff; animation-delay: 1s;"></div>
+            <div class="particle floating absolute rounded-full" style="top: 10%; left: 50%; width: 4px; height: 4px; background: #00ff9d; animation-delay: 2s;"></div>
+            <div class="particle floating absolute rounded-full" style="top: 80%; left: 20%; width: 10px; height: 10px; background: #00f5ff; animation-delay: 3s;"></div>
+            <div class="particle floating absolute rounded-full" style="top: 40%; left: 80%; width: 5px; height: 5px; background: #9d00ff; animation-delay: 4s;"></div>
+        </div>
+    </section>
+    
+    <!-- About Section with GSAP Scroll Animations -->
+    <section id="about" class="py-20 relative">
+    <div class="container mx-auto px-6">
+        <h2 class="text-3xl md:text-4xl font-bold font-orbitron mb-16 text-center neon-title gsap-fade-in">
+            About Me
+        </h2>
+        
+        <div class="glass neon-border rounded-2xl p-8 md:p-12 flex flex-col md:flex-row items-center gap-10">
+            <div class="md:w-1/3 gsap-slide-left">
+                <div class="glass p-4 rounded-lg inline-block floating">
+                    <div class="w-64 h-64 rounded-lg overflow-hidden">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMDAgMjAwIj48cmVjdCB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iIzBhMGExMiIvPjxwYXRoIGQ9Ik0gNTAgMzAgTCAyNTAgMzAgTCAyNzAgNjAgTCAyNzAgMTcwIEwgMzAgMTcwIEwgMzAgNjAgTCA1MCAzMCBaIiBmaWxsPSIjMDBmMmZmIiBmaWxsLW9wYWNpdHk9IjAuMSIvPjxyZWN0IHg9IjUwIiB5PSI1MCIgd2lkdGg9IjIwMCIgaGVpZ2h0PSIxMjAiIGZpbGw9InRyYW5zcGFyZW50IiBzdHJva2U9IiMwMGYyZmYiIHN0cm9rZS13aWR0aD0iMyIgc3Ryb2tlLWRhc2hhcnJheT0iNCIvPjxwYXRoIGQ9Ik0gNjAgODAgTCAxMDAgODAgTCAxMDAgMTIwIEwgNjAgMTIwIEwgNjAgODAgWiIgZmlsbD0iIzlkMDBmZiIgZmlsbC1vcGFjaXR5PSIwLjMiLz48cmVjdCB4PSIxMjAiIHk9IjgwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iMTAiIGZpbGw9IiMwMGYyZmYiIGZpbGwtb3BhY2l0eT0iMC4yIi8+PHRleHQgeD0iMTUwIiB5PSIxMjAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0id2hpdGUiPk1vYmlsZSBEZXZlbG9wZXI8L3RleHQ+PHRleHQgeD0iODAiIHk9IjE1MCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE0IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjMGZmMmZmIj5GbHV0dGVyIEFwcDwvdGV4dD48L3N2Zz4=" 
+                             alt="Mobile Development Illustration" class="rounded-lg w-full">
+                    </div>
+                </div>
+            </div>
+            <div class="md:w-2/3 gsap-slide-right">
+                <p class="mb-4 text-lg">
+                    Hello! I'm <span class="text-cyberBlue">Arian</span>, a dedicated <span class="text-matrixGreen">Flutter Developer</span> with <span class="text-neonPink">2+ years</span> of hands-on experience in building cross-platform mobile applications for Android and iOS.
+                </p>
+                <p class="mb-4 text-lg">
+                    I specialize in crafting smooth, responsive, and visually appealing user interfaces, along with integrating powerful backend functionalities. I always aim to create apps that are both user-friendly and performance-optimized.
+                </p>
+                <p class="text-lg mb-8">
+                    I’m always excited to learn new technologies, stay updated with Flutter’s evolving ecosystem, and contribute to impactful projects. My passion lies in turning ideas into real, functional apps that people love to use.
+                </p>
+                
+                <div class="flex space-x-6">
+                    <div class="text-center glass p-4 rounded-lg group hover:bg-cyberBlue transition-all duration-300 gsap-scale-in" data-delay="0.2">
+                        <div class="text-3xl mb-2 text-cyberBlue group-hover:text-white">2+</div>
+                        <div class="text-sm">Years Experience</div>
+                    </div>
+                    <div class="text-center glass p-4 rounded-lg group hover:bg-matrixGreen transition-all duration-300 gsap-scale-in" data-delay="0.3">
+                        <div class="text-3xl mb-2 text-cyberBlue group-hover:text-white">20+</div>
+                        <div class="text-sm">Projects Completed</div>
+                    </div>
+                    <div class="text-center glass p-4 rounded-lg group hover:bg-neonPink transition-all duration-300 gsap-scale-in" data-delay="0.4">
+                        <div class="text-3xl mb-2 text-cyberBlue group-hover:text-white">5M+</div>
+                        <div class="text-sm">App Downloads</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Floating circles -->
+    <div class="animated-circle gsap-fade-in" style="top: 10%; left: 5%; width: 80px; height: 80px;"></div>
+    <div class="animated-circle gsap-fade-in" style="top: 30%; right: 10%; width: 120px; height: 120px;"></div>
+</section>
+
+    
+    <!-- Skills Section with Staggered Animations -->
+   <section id="skills" class="py-20">
+    <div class="container mx-auto px-6">
+        <h2 class="text-3xl md:text-4xl font-bold font-orbitron mb-16 text-center neon-title gsap-fade-in">
+            Technical Expertise
+        </h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- App Development Skills Card -->
+            <div class="glass neon-border rounded-2xl p-8 gsap-reveal-in">
+                <h3 class="text-2xl font-semibold mb-6 text-cyberBlue">App Development Skills</h3>
+                
+                <div class="space-y-8">
+                    <div class="gsap-fade-in" data-delay="0.2">
+                        <div class="flex justify-between mb-2">
+                            <span class="font-medium">Flutter & Dart</span>
+                            <span class="text-matrixGreen">95%</span>
+                        </div>
+                        <div class="w-full bg-gray-800 rounded-full h-3">
+                            <div class="skill-bar-fill h-3 rounded-full bg-gradient-to-r from-cyberPurple to-cyberBlue" style="width: 95%"></div>
+                        </div>
+                    </div>
+
+                    <div class="gsap-fade-in" data-delay="0.3">
+                        <div class="flex justify-between mb-2">
+                            <span class="font-medium">Firebase</span>
+                            <span class="text-matrixGreen">90%</span>
+                        </div>
+                        <div class="w-full bg-gray-800 rounded-full h-3">
+                            <div class="skill-bar-fill h-3 rounded-full bg-gradient-to-r from-cyberPurple to-cyberBlue" style="width: 90%"></div>
+                        </div>
+                    </div>
+
+                    <div class="gsap-fade-in" data-delay="0.4">
+                        <div class="flex justify-between mb-2">
+                            <span class="font-medium">REST API Integration</span>
+                            <span class="text-matrixGreen">88%</span>
+                        </div>
+                        <div class="w-full bg-gray-800 rounded-full h-3">
+                            <div class="skill-bar-fill h-3 rounded-full bg-gradient-to-r from-cyberPurple to-cyberBlue" style="width: 88%"></div>
+                        </div>
+                    </div>
+
+                    <div class="gsap-fade-in" data-delay="0.5">
+                        <div class="flex justify-between mb-2">
+                            <span class="font-medium">MongoDB</span>
+                            <span class="text-matrixGreen">80%</span>
+                        </div>
+                        <div class="w-full bg-gray-800 rounded-full h-3">
+                            <div class="skill-bar-fill h-3 rounded-full bg-gradient-to-r from-cyberPurple to-cyberBlue" style="width: 80%"></div>
+                        </div>
+                    </div>
+
+                    <div class="gsap-fade-in" data-delay="0.6">
+                        <div class="flex justify-between mb-2">
+                            <span class="font-medium">Local DB (Hive, SQflite)</span>
+                            <span class="text-matrixGreen">85%</span>
+                        </div>
+                        <div class="w-full bg-gray-800 rounded-full h-3">
+                            <div class="skill-bar-fill h-3 rounded-full bg-gradient-to-r from-cyberPurple to-cyberBlue" style="width: 85%"></div>
+                        </div>
+                    </div>
+
+                   
+
+                    <div class="gsap-fade-in" data-delay="0.8">
+                        <div class="flex justify-between mb-2">
+                            <span class="font-medium">App Deployment</span>
+                            <span class="text-matrixGreen">90%</span>
+                        </div>
+                        <div class="w-full bg-gray-800 rounded-full h-3">
+                            <div class="skill-bar-fill h-3 rounded-full bg-gradient-to-r from-cyberPurple to-cyberBlue" style="width: 90%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Web Technologies Card -->
+            <!-- Technologies & Tools Card -->
+                <div class="glass neon-border rounded-2xl p-8 gsap-reveal-in">
+                    <h3 class="text-2xl font-semibold mb-6 text-cyberBlue">Technologies & Tools</h3>
+                    
+                    <div class="grid grid-cols-3 gap-4">
+                        <div class="tech-card glass p-3 rounded-xl text-center group gsap-scale-in">
+                            <div class="tech-inner">
+                                <div class="tech-front flex flex-col items-center">
+                                    <i class="fab fa-git-alt text-4xl mb-3 text-cyberBlue"></i>
+                                    <p>Git</p>
+                                </div>
+                                <div class="tech-back flex items-center justify-center h-full text-sm">
+                                    Version Control
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="tech-card glass p-3 rounded-xl text-center group gsap-scale-in" data-delay="0.1">
+                            <div class="tech-inner">
+                                <div class="tech-front flex flex-col items-center">
+                                    <i class="fab fa-aws text-4xl mb-3 text-cyberBlue"></i>
+                                    <p>AWS</p>
+                                </div>
+                                <div class="tech-back flex items-center justify-center h-full text-sm">
+                                    Cloud Services
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="tech-card glass p-3 rounded-xl text-center group gsap-scale-in" data-delay="0.2">
+                            <div class="tech-inner">
+                                <div class="tech-front flex flex-col items-center">
+                                    <i class="fas fa-fire text-4xl mb-3 text-cyberBlue"></i>
+                                    <p>Firebase</p>
+                                </div>
+                                <div class="tech-back flex items-center justify-center h-full text-sm">
+                                    Backend & Auth
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="tech-card glass p-3 rounded-xl text-center group gsap-scale-in" data-delay="0.3">
+                            <div class="tech-inner">
+                                <div class="tech-front flex flex-col items-center">
+                                    <i class="fas fa-database text-4xl mb-3 text-cyberBlue"></i>
+                                    <p>SQL & NoSQL</p>
+                                </div>
+                                <div class="tech-back flex items-center justify-center h-full text-sm">
+                                    Databases
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="tech-card glass p-3 rounded-xl text-center group gsap-scale-in" data-delay="0.4">
+                            <div class="tech-inner">
+                                <div class="tech-front flex flex-col items-center">
+                                    <i class="fab fa-figma text-4xl mb-3 text-cyberBlue"></i>
+                                    <p>Figma</p>
+                                </div>
+                                <div class="tech-back flex items-center justify-center h-full text-sm">
+                                    UI/UX Design
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="tech-card glass p-3 rounded-xl text-center group gsap-scale-in" data-delay="0.5">
+                            <div class="tech-inner">
+                                <div class="tech-front flex flex-col items-center">
+                                    <i class="fab fa-docker text-4xl mb-3 text-cyberBlue"></i>
+                                    <p>Docker</p>
+                                </div>
+                                <div class="tech-back flex items-center justify-center h-full text-sm">
+                                    Containerization
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Experience Section with Timeline Animation -->
+    <section id="experience" class="py-20 relative">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold font-orbitron mb-16 text-center neon-title gsap-fade-in">
+                Experience & Education
+            </h2>
+            
+            <div class="relative">
+                <!-- Timeline -->
+                <div class="space-y-12 pl-12">
+                    <!-- Experience Items -->
+                    <div class="relative timeline-item gsap-fade-in">
+                        <div class="glass neon-border rounded-2xl p-6 group hover:bg-gray-900/30 transition-all duration-300">
+                            <div class="absolute -left-12 top-4 w-10 h-10 rounded-full bg-gradient-to-r from-cyberPurple to-cyberBlue flex items-center justify-center">
+                                <i class="fas fa-briefcase"></i>
+                            </div>
+                            <div class="flex flex-wrap justify-between mb-2">
+                                <h3 class="text-2xl font-semibold text-matrixGreen">Senior Mobile Developer</h3>
+                                <span class="text-sm text-cyberBlue">2021 - Present</span>
+                            </div>
+                            <p class="text-lg font-medium text-gray-300">Tech Innovations Inc.</p>
+                            <p class="mt-4">
+                                Leading the mobile team in developing and maintaining flagship products. Implemented CI/CD pipelines improving deployment frequency by 60%.
+                            </p>
+                            <div class="mt-4 flex flex-wrap gap-2">
+                                <span class="text-sm glass px-3 py-1 rounded-full">Flutter</span>
+                                <span class="text-sm glass px-3 py-1 rounded-full">Firebase</span>
+                                <span class="text-sm glass px-3 py-1 rounded-full">CI/CD</span>
+                                <span class="text-sm glass px-3 py-1 rounded-full">Bloc</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="relative timeline-item gsap-fade-in" data-delay="0.1">
+                        <div class="glass neon-border rounded-2xl p-6 group hover:bg-gray-900/30 transition-all duration-300">
+                            <div class="absolute -left-12 top-4 w-10 h-10 rounded-full bg-gradient-to-r from-cyberPurple to-cyberBlue flex items-center justify-center">
+                                <i class="fas fa-briefcase"></i>
+                            </div>
+                            <div class="flex flex-wrap justify-between mb-2">
+                                <h3 class="text-2xl font-semibold text-matrixGreen">Mobile App Developer</h3>
+                                <span class="text-sm text-cyberBlue">2018 - 2021</span>
+                            </div>
+                            <p class="text-lg font-medium text-gray-300">Digital Solutions Co.</p>
+                            <p class="mt-4">
+                                Developed and launched 15+ mobile applications across various industries. Reduced app load times by 40% through optimized architecture.
+                            </p>
+                            <div class="mt-4 flex flex-wrap gap-2">
+                                <span class="text-sm glass px-3 py-1 rounded-full">React Native</span>
+                                <span class="text-sm glass px-3 py-1 rounded-full">Redux</span>
+                                <span class="text-sm glass px-3 py-1 rounded-full">Node.js</span>
+                                <span class="text-sm glass px-3 py-1 rounded-full">Swift</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Education Items -->
+                  <div class="relative timeline-item gsap-fade-in" data-delay="0.2">
+                    <div class="glass neon-border rounded-2xl p-6 group hover:bg-gray-900/30 transition-all duration-300">
+                        <div class="absolute -left-12 top-4 w-10 h-10 rounded-full bg-gradient-to-r from-cyberPurple to-matrixGreen flex items-center justify-center">
+                        <i class="fas fa-school"></i>
+                        </div>
+                        <div class="flex flex-wrap justify-between mb-2">
+                        <h3 class="text-2xl font-semibold text-matrixGreen">Secondary School Certificate (SSC)</h3>
+                        <span class="text-sm text-cyberBlue">2024</span>
+                        </div>
+                        <p class="text-lg font-medium text-gray-300">CharPara High School</p>
+                        <p class="mt-4">
+                        Completed SSC in Science stream with strong academic performance. Built foundational knowledge in Physics, Chemistry, Biology, and Mathematics.
+                        </p>
+                        <div class="mt-4 flex flex-wrap gap-2">
+                        <span class="text-sm glass px-3 py-1 rounded-full">Science</span>
+                        <span class="text-sm glass px-3 py-1 rounded-full">SSC 2024</span>
+                        <span class="text-sm glass px-3 py-1 rounded-full">CharPara High School</span>
+                        </div>
+                    </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Projects Section with Card Animations -->
+    <section id="projects" class="py-20">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold font-orbitron mb-16 text-center neon-title gsap-fade-in">
+                Featured Projects
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="glass neon-border rounded-2xl overflow-hidden relative h-96 project-card gsap-scale-in">
+                    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0MDAgMzAwIj48cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgZmlsbD0iIzAwMmIzMyIvPjxyZWN0IHg9IjQwIiB5PSIzMCIgd2lkdGg9IjMyMCIgaGVpZ2h0PSIyNTAiIHJ4PSIxMCIgZmlsbD0iIzAwZjJmZiIgZmlsbC1vcGFjaXR5PSIwLjEiLz48Y2lyY2xlIGN4PSIyMDAiIGN5PSI4MCIgcj0iMzAiIGZpbGw9IiMwMGYyZmYiIGZpbGwtb3BhY2l0eT0iMC4yIi8+PHJlY3QgeD0iNzAiIHk9IjEzMCIgd2lkdGg9IjI2MCIgaGVpZ2h0PSIyMCIgcng9IjUiIGZpbGw9IiMwMGYyZmYiIGZpbGwtb3BhY2l0eT0iMC4zIi8+PHJlY3QgeD0iMTAwIiB5PSIxNjAiIHdpZHRoPSI2MCIgaGVpZ2h0PSIyMCIgcng9IjMiIGZpbGw9IiMwMGYyZmYiIGZpbGwtb3BhY2l0eT0iMC4yIi8+PHJlY3QgeD0iMjQwIiB5PSIxNjAiIHdpZHRoPSI2MCIgaGVpZ2h0PSIyMCIgcng9IjMiIGZpbGw9IiMwMGYyZmYiIGZpbGwtb3BhY2l0eT0iMC4yIi8+PHJlY3QgeD0iMTUwIiB5PSIxOTAiIHdpZHRoPSIxMDAiIGhlaWdodD0iMjAiIHJ4PSIzIiBmaWxsPSIjMDBmMmZmIiBmaWxsLW9wYWNpdHk9IjAuNCIvPjwvc3ZnPg==')"></div>
+                    <div class="project-overlay absolute inset-0 bg-gradient-to-t from-dark to-transparent opacity-0 transition-all duration-500 flex flex-col justify-end p-6 transform scale-105">
+                        <h3 class="text-2xl font-bold text-white">FinTrack App</h3>
+                        <p class="mt-2">Personal finance manager with AI spending insights</p>
+                        <div class="mt-4 flex flex-wrap gap-2">
+                            <span class="text-sm glass px-3 py-1 rounded-full">Flutter</span>
+                            <span class="text-sm glass px-3 py-1 rounded-full">Firebase</span>
+                            <span class="text-sm glass px-3 py-1 rounded-full">ML Kit</span>
+                        </div>
+                        <div class="mt-6">
+                            <a href="#" class="text-cyberBlue hover:text-cyberPurple font-medium flex items-center">
+                                View Details <i class="fas fa-arrow-right ml-2 text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="glass neon-border rounded-2xl overflow-hidden relative h-96 project-card gsap-scale-in" data-delay="0.2">
+                    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0MDAgMzAwIj48cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgZmlsbD0iIzIwMDAzMyIvPjxyZWN0IHg9IjMwIiB5PSIyMCIgd2lkdGg9IjM0MCIgaGVpZ2h0PSIyNjAiIHJ4PSIxNSIgZmlsbD0iIzlkMDBmZiIgZmlsbC1vcGFjaXR5PSIwLjEiLz48cmVjdCB4PSI2MCIgeT0iNjAiIHdpZHRoPSIyODAiIGhlaWdodD0iMTgwIiByeD0iMTAiIGZpbGw9IiMwMGYyZmYiIGZpbGwtb3BhY2l0eT0iMC4xIi8+PGNpcmNsZSBjeD0iMTIwIiBjeT0iMTUwIiByPSI1MCIgZmlsbD0idHJhbnNwYXJlbnQiIHN0cm9rZT0iIzlkMDBmZiIgc3Ryb2tlLXdpZHRoPSIzIi8+PGNpcmNsZSBjeD0iMjgwIiBjeT0iMTUwIiByPSI1MCIgZmlsbD0idHJhbnNwYXJlbnQiIHN0cm9rZT0iIzAwZjJmZiIgc3Ryb2tlLXdpZHRoPSIzIi8+PGxpbmUgeDE9IjEyMCIgeTE9IjE1MCIgeDI9IjI4MCIgeTI9IjE1MCIgc3Ryb2tlPSIjMDBmMmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1kYXNoYXJyYXk9IjggOCIvPjwvc3ZnPg==')"></div>
+                    <div class="project-overlay absolute inset-0 bg-gradient-to-t from-dark to-transparent opacity-0 transition-all duration-500 flex flex-col justify-end p-6 transform scale-105">
+                        <h3 class="text-2xl font-bold">HealthConnect</h3>
+                        <p class="mt-2">Medical appointment scheduling & telemedicine</p>
+                        <div class="mt-4 flex flex-wrap gap-2">
+                            <span class="text-sm glass px-3 py-1 rounded-full">React Native</span>
+                            <span class="text-sm glass px-3 py-1 rounded-full">Node.js</span>
+                            <span class="text-sm glass px-3 py-1 rounded-full">MongoDB</span>
+                        </div>
+                        <div class="mt-6">
+                            <a href="#" class="text-cyberBlue hover:text-cyberPurple font-medium flex items-center">
+                                View Details <i class="fas fa-arrow-right ml-2 text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="glass neon-border rounded-2xl overflow-hidden relative h-96 project-card gsap-scale-in" data-delay="0.3">
+                    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0MDAgMzAwIj48cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgZ illbD0iIzAwMjAzMyIvPjxyZWN0IHg9IjQwIiB5PSIyMCIgd2lkdGg9IjMyMCIgaGVpZ2h0PSIyNjAiIHJ4PSIxNSIgZmlsbD0iIzkwMGZmZiIgZmlsbC1vcGFjaXR5PSIwLjEiLz48Y2lyY2xlIGN4PSIyMDAiIGN5PSIxMDAiIHI9IjQwIiBmaWxsPSIjMDBmMmZmIiBmaWxsLW9wYWNpdHk9IjAuMiIvPjxyZWN0IHg9IjEwMCIgeT0iMTUwIiB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwIiByeD0iMyIgZmlsbD0iIzkwMGZmZiIgZmlsbC1vcGFjaXR5PSIwLjMiLz48Y2lyY2xlIGN4PSIyMDAiIGN5PSIxOTAiIHI9IjMwIiBmaWxsPSIjZmZmIiBmaWxsLW9wYWNpdHk9IjAuNSIvPjwvc3ZnPg==')"></div>
+                    <div class="project-overlay absolute inset-0 bg-gradient-to-t from-dark to-transparent opacity-0 transition-all duration-500 flex flex-col justify-end p-6 transform scale-105">
+                        <h3 class="text-2xl font-bold">EcoShop</h3>
+                        <p class="mt-2">Sustainable products marketplace with carbon calculator</p>
+                        <div class="mt-4 flex flex-wrap gap-2">
+                            <span class="text-sm glass px-3 py-1 rounded-full">Flutter</span>
+                            <span class="text-sm glass px-3 py-1 rounded-full">Firestore</span>
+                            <span class="text-sm glass px-3 py-1 rounded-full">Stripe</span>
+                        </div>
+                        <div class="mt-6">
+                            <a href="#" class="text-cyberBlue hover:text-cyberPurple font-medium flex items-center">
+                                View Details <i class="fas fa-arrow-right ml-2 text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section with Form Animations -->
+    <section id="contact" class="py-20">
+  <div class="container mx-auto px-6">
+    <h2 class="text-3xl md:text-4xl font-bold font-orbitron mb-16 text-center neon-title gsap-fade-in">
+      Get In Touch
+    </h2>
+
+    <div class="glass neon-border rounded-2xl p-8 md:p-12">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <!-- Left Section -->
+        <div class="gsap-slide-left">
+          <h3 class="text-2xl font-semibold mb-6 text-cyberBlue">Let's Connect</h3>
+          <p class="mb-8 text-lg">
+            Have a project in mind or want to discuss potential opportunities? I'm currently available for freelance projects or full-time positions.
+          </p>
+
+          <div class="space-y-4">
+            <div class="flex items-center gap-4 group hover:bg-gray-900/30 p-4 rounded-lg transition-all gsap-fade-in">
+              <div class="w-12 h-12 rounded-full bg-cyberBlue bg-opacity-20 flex items-center justify-center text-cyberBlue text-xl group-hover:scale-110 transition-transform">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div>
+                <p class="text-gray-400">Email me at</p>
+                <p class="text-white text-lg">dev.eom.bd@gmail.com</p>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-4 group hover:bg-gray-900/30 p-4 rounded-lg transition-all gsap-fade-in">
+              <div class="w-12 h-12 rounded-full bg-cyberBlue bg-opacity-20 flex items-center justify-center text-cyberBlue text-xl group-hover:scale-110 transition-transform">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div>
+                <p class="text-gray-400">Based in</p>
+                <p class="text-white text-lg">Rajshahi, BD</p>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-4 group hover:bg-gray-900/30 p-4 rounded-lg transition-all gsap-fade-in">
+              <div class="w-12 h-12 rounded-full bg-cyberBlue bg-opacity-20 flex items-center justify-center text-cyberBlue text-xl group-hover:scale-110 transition-transform">
+                <i class="fas fa-globe"></i>
+              </div>
+              <div>
+                <p class="text-gray-400">Availability</p>
+                <p class="text-white text-lg">Remote or Hybrid</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Social icons -->
+          <div class="mt-8 flex gap-4">
+            <a href="#" class="glass w-12 h-12 rounded-full flex items-center justify-center text-xl hover:bg-cyberBlue hover:text-dark transition gsap-scale-in">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="#" class="glass w-12 h-12 rounded-full flex items-center justify-center text-xl hover:bg-cyberBlue hover:text-dark transition gsap-scale-in">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="#" class="glass w-12 h-12 rounded-full flex items-center justify-center text-xl hover:bg-cyberBlue hover:text-dark transition gsap-scale-in">
+              <i class="fab fa-dribbble"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Side Form -->
+        <div class="gsap-slide-right">
+          <form
+            class="space-y-6"
+            id="contactForm"
+            onsubmit="sendMail(event)"
+          >
+            <div class="gsap-fade-in">
+              <label class="block mb-2 text-gray-300">Name</label>
+              <input
+                type="text"
+                id="name"
+                required
+                class="w-full glass p-3 rounded-lg border border-gray-700 focus:border-cyberBlue focus:outline-none transition placeholder-gray-500"
+              />
+            </div>
+
+            <div class="gsap-fade-in">
+              <label class="block mb-2 text-gray-300">Email</label>
+              <input
+                type="email"
+                id="email"
+                required
+                class="w-full glass p-3 rounded-lg border border-gray-700 focus:border-cyberBlue focus:outline-none transition placeholder-gray-500"
+              />
+            </div>
+
+            <div class="gsap-fade-in">
+              <label class="block mb-2 text-gray-300">Message</label>
+              <textarea
+                rows="5"
+                id="message"
+                required
+                class="w-full glass p-3 rounded-lg border border-gray-700 focus:border-cyberBlue focus:outline-none transition placeholder-gray-500"
+              ></textarea>
+            </div>
+
+            <button
+              type="submit"
+              class="w-full py-4 glass rounded-lg border border-cyberBlue text-cyberBlue hover:bg-cyberBlue hover:text-dark transition flex justify-center items-center gap-2 group gsap-fade-in"
+            >
+              <span class="group-hover:tracking-wider transition-all">Send Message</span>
+              <i class="fas fa-paper-plane transform group-hover:translate-x-2 transition-transform"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+    
+    <!-- Footer -->
+    <footer class="py-10 glass">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div>
+                    <p class="text-2xl font-bold mb-4">
+                        <span class="cyber-text">Arian</span>
+                        <span class="text-white">Emon</span>
+                    </p>
+                    <p class="text-gray-400">&copy; 2023 All rights reserved.</p>
+                </div>
+                
+                <div class="mt-6 md:mt-0">
+                    <div class="flex gap-4">
+                        <a href="#" class="hover:text-cyberBlue transition">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="hover:text-cyberBlue transition">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#" class="hover:text-cyberBlue transition">
+                            <i class="fab fa-dribbble"></i>
+                        </a>
+                        <a href="#" class="hover:text-cyberBlue transition">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-8 border-t border-gray-800 pt-8 text-center text-gray-500">
+                <p>Designed and developed with <i class="fas fa-heart text-neonPink"></i> by Arian Ahmed Emon</p>
+            </div>
+        </div>
+    </footer>
+    
+
+   
+    <script src="script.js"></script>
+</body>
+</html>
