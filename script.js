@@ -151,14 +151,20 @@
         });
          function sendMail(e) {
     e.preventDefault();
+
     const name = document.getElementById("name").value.trim();
     const email = document.getElementById("email").value.trim();
     const message = document.getElementById("message").value.trim();
 
-    const subject = `New message from ${name}`;
-    const body = `Name: ${name}%0AEmail: ${email}%0A%0AMessage:%0A${encodeURIComponent(
-      message
-    )}`;
+    const subject = encodeURIComponent(`New message from ${name}`);
+    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
+    const mailtoLink = `mailto:dev.emon.bd@gmail.com?subject=${subject}&body=${body}`;
 
-    window.location.href = `mailto:dev.emon.bd@gmail.com?subject=${subject}&body=${body}`;
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+    if (isMobile) {
+      window.location.href = mailtoLink;
+    } else {
+      window.open(mailtoLink, "_blank");
+    }
   }
